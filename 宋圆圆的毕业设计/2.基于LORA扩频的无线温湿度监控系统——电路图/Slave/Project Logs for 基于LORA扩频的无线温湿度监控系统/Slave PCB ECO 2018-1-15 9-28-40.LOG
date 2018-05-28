@@ -1,0 +1,103 @@
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=VCC Pin=C7-1
+Added Pin To Net: NetName=GND Pin=J1-2A
+Added Pin To Net: NetName=GND Pin=J1-2B
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=RESET Pin=K1-1
+Added Pin To Net: NetName=VCC Pin=K1-2
+Added Pin To Net: NetName=VCC Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=VCC Pin=LED2-2
+Added Pin To Net: NetName=VCC Pin=LED3-2
+Added Pin To Net: NetName=VCC Pin=LED4-1
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=VCC Pin=P2-1
+Added Pin To Net: NetName=DATA Pin=P2-2
+Added Pin To Net: NetName=GND Pin=P2-3
+Added Pin To Net: NetName=VCC Pin=P4-1
+Added Pin To Net: NetName=GND Pin=P4-4
+Added Pin To Net: NetName=GND Pin=P5-1
+Added Pin To Net: NetName=GND Pin=P5-1
+Added Pin To Net: NetName=VCC Pin=P5-2
+Added Pin To Net: NetName=VCC Pin=P5-2
+Added Pin To Net: NetName=GND Pin=R2-2
+Added Pin To Net: NetName=LED1 Pin=R3-1
+Added Pin To Net: NetName=LED2 Pin=R4-1
+Added Pin To Net: NetName=NetLED1_2 Pin=R6-1
+Added Pin To Net: NetName=GND Pin=R6-2
+Added Pin To Net: NetName=VCC Pin=S1-3
+Added Pin To Net: NetName=DATA Pin=U1-1
+Added Pin To Net: NetName=LED2 Pin=U1-3
+Added Pin To Net: NetName=LED1 Pin=U1-5
+Added Pin To Net: NetName=RESET Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=VCC Pin=U1-40
+Added Pin To Net: NetName=5V Pin=J1-1
+Added Pin To Net: NetName=5V Pin=J1-1A
+Added Pin To Net: NetName=5V Pin=J1-1B
+Added Pin To Net: NetName=5V Pin=P1-2
+Added Pin To Net: NetName=5V Pin=S1-2
+Added Net: Name=5V
+Added Pin To Net: NetName=AUX Pin=P5-3
+Added Pin To Net: NetName=AUX Pin=P5-3
+Added Pin To Net: NetName=AUX Pin=R5-2
+Added Net: Name=AUX
+Added Pin To Net: NetName=M0 Pin=P5-7
+Added Pin To Net: NetName=M0 Pin=U1-28
+Added Net: Name=M0
+Added Pin To Net: NetName=M1 Pin=P5-6
+Added Pin To Net: NetName=M1 Pin=U1-27
+Added Net: Name=M1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=R2-1
+Added Net: Name=NetC7_2
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3A
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3B
+Added Net: Name=NetJ1_3
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R3-2
+Added Net: Name=NetLED2_1
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED3_1 Pin=R4-2
+Added Net: Name=NetLED3_1
+Added Pin To Net: NetName=NetLED4_2 Pin=LED4-2
+Added Pin To Net: NetName=NetLED4_2 Pin=R5-1
+Added Net: Name=NetLED4_2
+Added Pin To Net: NetName=RX Pin=P4-3
+Added Pin To Net: NetName=RX Pin=P5-4
+Added Pin To Net: NetName=RX Pin=U1-10
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=P4-2
+Added Pin To Net: NetName=TX Pin=P5-5
+Added Pin To Net: NetName=TX Pin=U1-11
+Added Net: Name=TX
+Added Pin To Net: NetName=XTAL1 Pin=2-1
+Added Pin To Net: NetName=XTAL1 Pin=C6-2
+Added Pin To Net: NetName=XTAL1 Pin=U1-19
+Added Net: Name=XTAL1
+Added Pin To Net: NetName=XTAL2 Pin=2-2
+Added Pin To Net: NetName=XTAL2 Pin=C5-2
+Added Pin To Net: NetName=XTAL2 Pin=U1-18
+Added Net: Name=XTAL2
+Change Class Name : Old Net Name=Class New Net Name=Slave
+Added Member To Class: ClassName=Slave Member=Component 2 XTAL
+Added Member To Class: ClassName=Slave Member=Component C1 Cap
+Added Member To Class: ClassName=Slave Member=Component C5 Cap
+Added Member To Class: ClassName=Slave Member=Component C6 Cap
+Added Member To Class: ClassName=Slave Member=Component C7 Cap Pol1
+Added Member To Class: ClassName=Slave Member=Component LED4 LED
+Added Member To Class: ClassName=Slave Member=Component P1 
+Added Member To Class: ClassName=Slave Member=Component P2 DHT11
+Added Member To Class: ClassName=Slave Member=Component P4 下载口
+Added Member To Class: ClassName=Slave Member=Component P5 无线串口模块
+Added Member To Class: ClassName=Slave Member=Component R2 Res2
+Added Member To Class: ClassName=Slave Member=Component R3 Res2
+Added Member To Class: ClassName=Slave Member=Component R4 Res2
+Added Member To Class: ClassName=Slave Member=Component R5 Res2
+Added Member To Class: ClassName=Slave Member=Component R6 Res2
+Added Member To Class: ClassName=Slave Member=Component U1 STC89C51
+Added Room: Name=Slave

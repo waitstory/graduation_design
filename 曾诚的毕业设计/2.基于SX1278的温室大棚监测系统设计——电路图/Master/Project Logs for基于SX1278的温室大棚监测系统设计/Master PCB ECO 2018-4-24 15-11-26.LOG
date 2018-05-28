@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=TX Pin=P2-2
+Removed Pin From Net: NetName=RX Pin=P2-3
+Removed Pin From Net: NetName=VCC Pin=P2-4
+Removed Pin From Net: NetName=BEEP Pin=P4-2
+Removed Pin From Net: NetName=VCC Pin=P4-3
+Change Component DesignItemId : Designator=P4 Old DesignItemId=Header 3 New DesignItemId=Header 4
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 4 New DesignItemId=Header 3
+Change Component Footprint: Designator=P4 Old Footprint=HDR1X3 New Footprint=HDR1X4
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X4 New Footprint=HDR1X3
+Change Component Comment : Designator=P2 Old Comment=Header 4 New Comment=·äÃùÆ÷
+Change Component Comment : Designator=P4 Old Comment=·äÃùÆ÷ New Comment=Header 4
+Added Pin To Net: NetName=BEEP Pin=P2-2
+Added Pin To Net: NetName=VCC Pin=P2-3
+Added Pin To Net: NetName=TX Pin=P4-2
+Added Pin To Net: NetName=RX Pin=P4-3
+Added Pin To Net: NetName=VCC Pin=P4-4

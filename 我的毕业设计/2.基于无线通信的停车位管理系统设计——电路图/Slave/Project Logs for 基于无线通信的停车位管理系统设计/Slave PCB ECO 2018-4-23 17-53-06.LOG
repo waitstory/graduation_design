@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=RESET Pin=C7-2
+Removed Pin From Net: NetName=RESET Pin=R2-1
+Removed Pin From Net: NetName=DATA Pin=U1-1
+Removed Pin From Net: NetName=LED2 Pin=U1-3
+Removed Pin From Net: NetName=LED1 Pin=U1-5
+Removed Pin From Net: NetName=RESET Pin=U1-9
+Removed Pin From Net: NetName=RX Pin=U1-10
+Removed Pin From Net: NetName=TX Pin=U1-11
+Removed Pin From Net: NetName=XTAL2 Pin=U1-18
+Removed Pin From Net: NetName=XTAL1 Pin=U1-19
+Removed Pin From Net: NetName=GND Pin=U1-20
+Removed Pin From Net: NetName=M1 Pin=U1-27
+Removed Pin From Net: NetName=M0 Pin=U1-28
+Removed Pin From Net: NetName=VCC Pin=U1-40
+Removed Member From Class: ClassName=Slave Member=U1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=R2-1
+Added Room: Name=Slave

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=RESET Pin=C7-2
+Removed Pin From Net: NetName=RESET Pin=R2-1
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=R2-1
+Change Net Name : Old Net Name=BEEP New Net Name=DATA
+Added Room: Name=Slave

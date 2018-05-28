@@ -1,0 +1,15 @@
+Added Component: Designator=U?(DIP-40)
+Added Pin To Net: NetName=DATA Pin=U?-1
+Added Pin To Net: NetName=LED2 Pin=U?-3
+Added Pin To Net: NetName=LED1 Pin=U?-5
+Added Pin To Net: NetName=RESET Pin=U?-9
+Added Pin To Net: NetName=RX Pin=U?-10
+Added Pin To Net: NetName=TX Pin=U?-11
+Added Pin To Net: NetName=XTAL2 Pin=U?-18
+Added Pin To Net: NetName=XTAL1 Pin=U?-19
+Added Pin To Net: NetName=GND Pin=U?-20
+Added Pin To Net: NetName=M1 Pin=U?-27
+Added Pin To Net: NetName=M0 Pin=U?-28
+Added Pin To Net: NetName=VCC Pin=U?-40
+Added Member To Class: ClassName=Slave Member=Component U? STC89C51
+Added Room: Name=Slave

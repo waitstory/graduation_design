@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=GND Pin=J1-4
+Change Component DesignItemId : Designator=J1 Old DesignItemId=USB-A New DesignItemId=PWR2.5
+Change Component Footprint: Designator=J1 Old Footprint=USB-A New Footprint=KLD-0202
+Change Component Comment : Designator=J1 Old Comment=USB-A New Comment=PWR2.5
+Added Component: Designator=C1(RAD-0.1)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C1-2
+Added Pin To Net: NetName=5V Pin=J1-1A
+Added Pin To Net: NetName=5V Pin=J1-1B
+Added Pin To Net: NetName=GND Pin=J1-2A
+Added Pin To Net: NetName=GND Pin=J1-2B
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3A
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3B
+Added Net: Name=NetJ1_3
+Added Member To Class: ClassName=Slave Member=Component C1 Cap
+Added Room: Name=Slave

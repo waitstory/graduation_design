@@ -1,0 +1,160 @@
+Added Component: Designator=1(XTAL_US)
+Added Component: Designator=C1(RAD-0.1)
+Added Component: Designator=C2(RB.1/.2)
+Added Component: Designator=C3(RAD-0.1)
+Added Component: Designator=C4(RB.1/.2)
+Added Component: Designator=C5(RAD-0.1)
+Added Component: Designator=J1(KLD-0202)
+Added Component: Designator=K1(四脚按键)
+Added Component: Designator=LCD1(LCD1602)
+Added Component: Designator=LED1(LED)
+Added Component: Designator=LED2(LED)
+Added Component: Designator=LED3(LED)
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=P2(HDR1X2)
+Added Component: Designator=P3(HDR1X3)
+Added Component: Designator=P4(HDR1X3)
+Added Component: Designator=P5(HDR1X2)
+Added Component: Designator=P6(HDR1X9)
+Added Component: Designator=P7(HDR1X4)
+Added Component: Designator=R1(AXIAL-0.4)
+Added Component: Designator=R2(AXIAL-0.4)
+Added Component: Designator=R3(AXIAL-0.4)
+Added Component: Designator=R4(电位器)
+Added Component: Designator=R5(AXIAL-0.4)
+Added Component: Designator=S1(SWITCH_B1)
+Added Component: Designator=U1(DIP-40)
+Added Pin To Net: NetName=5V Pin=J1-1
+Added Pin To Net: NetName=5V Pin=J1-1A
+Added Pin To Net: NetName=5V Pin=J1-1B
+Added Pin To Net: NetName=5V Pin=S1-2
+Added Net: Name=5V
+Added Pin To Net: NetName=BEEP Pin=P3-2
+Added Pin To Net: NetName=BEEP Pin=U1-4
+Added Net: Name=BEEP
+Added Pin To Net: NetName=D0 Pin=LCD1-7
+Added Pin To Net: NetName=D0 Pin=P6-2
+Added Pin To Net: NetName=D0 Pin=U1-39
+Added Net: Name=D0
+Added Pin To Net: NetName=D1 Pin=LCD1-8
+Added Pin To Net: NetName=D1 Pin=P6-3
+Added Pin To Net: NetName=D1 Pin=U1-38
+Added Net: Name=D1
+Added Pin To Net: NetName=D2 Pin=LCD1-9
+Added Pin To Net: NetName=D2 Pin=P6-4
+Added Pin To Net: NetName=D2 Pin=U1-37
+Added Net: Name=D2
+Added Pin To Net: NetName=D3 Pin=LCD1-10
+Added Pin To Net: NetName=D3 Pin=P6-5
+Added Pin To Net: NetName=D3 Pin=U1-36
+Added Net: Name=D3
+Added Pin To Net: NetName=D4 Pin=LCD1-11
+Added Pin To Net: NetName=D4 Pin=P6-6
+Added Pin To Net: NetName=D4 Pin=U1-35
+Added Net: Name=D4
+Added Pin To Net: NetName=D5 Pin=LCD1-12
+Added Pin To Net: NetName=D5 Pin=P6-7
+Added Pin To Net: NetName=D5 Pin=U1-34
+Added Net: Name=D5
+Added Pin To Net: NetName=D6 Pin=LCD1-13
+Added Pin To Net: NetName=D6 Pin=P6-8
+Added Pin To Net: NetName=D6 Pin=U1-33
+Added Net: Name=D6
+Added Pin To Net: NetName=D7 Pin=LCD1-14
+Added Pin To Net: NetName=D7 Pin=P6-9
+Added Pin To Net: NetName=D7 Pin=U1-32
+Added Net: Name=D7
+Added Pin To Net: NetName=E Pin=LCD1-6
+Added Pin To Net: NetName=E Pin=U1-3
+Added Net: Name=E
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-2A
+Added Pin To Net: NetName=GND Pin=J1-2B
+Added Pin To Net: NetName=GND Pin=LCD1-1
+Added Pin To Net: NetName=GND Pin=LCD1-16
+Added Pin To Net: NetName=GND Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P2-1
+Added Pin To Net: NetName=GND Pin=P3-1
+Added Pin To Net: NetName=GND Pin=P4-3
+Added Pin To Net: NetName=GND Pin=P5-1
+Added Pin To Net: NetName=GND Pin=P7-1
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=R4-2
+Added Pin To Net: NetName=GND Pin=R4-3
+Added Pin To Net: NetName=GND Pin=R5-2
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=R1-2
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3A
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3B
+Added Net: Name=NetJ1_3
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2 Pin=R2-2
+Added Net: Name=NetLED1_2
+Added Pin To Net: NetName=NetLED2_2 Pin=LED2-2
+Added Pin To Net: NetName=NetLED2_2 Pin=R3-2
+Added Net: Name=NetLED2_2
+Added Pin To Net: NetName=NetLED3_2 Pin=LED3-2
+Added Pin To Net: NetName=NetLED3_2 Pin=R5-1
+Added Net: Name=NetLED3_2
+Added Pin To Net: NetName=OUT1 Pin=P1-2
+Added Pin To Net: NetName=OUT1 Pin=R2-1
+Added Pin To Net: NetName=OUT1 Pin=U1-28
+Added Net: Name=OUT1
+Added Pin To Net: NetName=OUT2 Pin=P4-2
+Added Pin To Net: NetName=OUT2 Pin=U1-27
+Added Net: Name=OUT2
+Added Pin To Net: NetName=RESET Pin=K1-2
+Added Pin To Net: NetName=RESET Pin=U1-9
+Added Net: Name=RESET
+Added Pin To Net: NetName=RS Pin=LCD1-4
+Added Pin To Net: NetName=RS Pin=U1-1
+Added Net: Name=RS
+Added Pin To Net: NetName=RW Pin=LCD1-5
+Added Pin To Net: NetName=RW Pin=U1-2
+Added Net: Name=RW
+Added Pin To Net: NetName=RX Pin=P7-3
+Added Pin To Net: NetName=RX Pin=U1-10
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=P7-2
+Added Pin To Net: NetName=TX Pin=U1-11
+Added Net: Name=TX
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=VCC Pin=C4-1
+Added Pin To Net: NetName=VCC Pin=C5-2
+Added Pin To Net: NetName=VCC Pin=K1-1
+Added Pin To Net: NetName=VCC Pin=LCD1-2
+Added Pin To Net: NetName=VCC Pin=LCD1-15
+Added Pin To Net: NetName=VCC Pin=LED1-1
+Added Pin To Net: NetName=VCC Pin=LED2-1
+Added Pin To Net: NetName=VCC Pin=LED3-1
+Added Pin To Net: NetName=VCC Pin=P1-1
+Added Pin To Net: NetName=VCC Pin=P2-2
+Added Pin To Net: NetName=VCC Pin=P3-3
+Added Pin To Net: NetName=VCC Pin=P4-1
+Added Pin To Net: NetName=VCC Pin=P5-2
+Added Pin To Net: NetName=VCC Pin=P6-1
+Added Pin To Net: NetName=VCC Pin=P7-4
+Added Pin To Net: NetName=VCC Pin=S1-3
+Added Pin To Net: NetName=VCC Pin=U1-40
+Added Net: Name=VCC
+Added Pin To Net: NetName=VO Pin=LCD1-3
+Added Pin To Net: NetName=VO Pin=R4-1
+Added Net: Name=VO
+Added Pin To Net: NetName=XTAL1 Pin=1-1
+Added Pin To Net: NetName=XTAL1 Pin=C3-1
+Added Pin To Net: NetName=XTAL1 Pin=U1-19
+Added Net: Name=XTAL1
+Added Pin To Net: NetName=XTAL2 Pin=1-2
+Added Pin To Net: NetName=XTAL2 Pin=C1-1
+Added Pin To Net: NetName=XTAL2 Pin=U1-18
+Added Net: Name=XTAL2
+Added Class: Name=基于单片机的光控计数器的设计
+Added Room: Name=基于单片机的光控计数器的设计

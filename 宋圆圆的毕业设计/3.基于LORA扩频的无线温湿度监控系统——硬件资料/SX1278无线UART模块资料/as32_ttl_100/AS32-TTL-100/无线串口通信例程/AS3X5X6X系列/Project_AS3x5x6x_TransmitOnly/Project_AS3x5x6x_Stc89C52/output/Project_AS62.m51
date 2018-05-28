@@ -1,0 +1,336 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/20/2017  11:57:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\C51\BIN\BL51.EXE ..\output\main.obj, ..\output\drv_delay.obj, ..\output\drv_led.obj, ..\output\drv_uart.obj TO 
+>> ..\output\Project_AS62 PRINT (..\output\Project_AS62.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ..\output\main.obj (MAIN)
+  ..\output\drv_delay.obj (DRV_DELAY)
+  ..\output\drv_led.obj (DRV_LED)
+  ..\output\drv_uart.obj (DRV_UART)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C?CSTPTR)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  ..\output\Project_AS62 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?MAIN
+            DATA    000BH     0001H     UNIT         ?DT?_DRV_UART_RX_BYTES?DRV_UART
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     002DH     UNIT         ?PR?_DRV_UART_RX_BYTES?DRV_UART
+            CODE    00BCH     002BH     UNIT         ?C?LIB_CODE
+            CODE    00E7H     0022H     UNIT         ?PR?DRV_UART_INIT?DRV_UART
+            CODE    0109H     0021H     UNIT         ?PR?MAIN?MAIN
+            CODE    012AH     001FH     UNIT         ?PR?DRV_DELAY_1MS?DRV_DELAY
+            CODE    0149H     001EH     UNIT         ?PR?_DRV_UART_TX_BYTES?DRV_UART
+            CODE    0167H     0017H     UNIT         ?PR?_DRV_DELAY_MS?DRV_DELAY
+            CODE    017EH     0015H     UNIT         ?PR?_DRV_LED_FLASHING?DRV_LED
+            CODE    0193H     0009H     UNIT         ?CO?MAIN
+            CODE    019CH     0009H     UNIT         ?PR?_DRV_LED_ON?DRV_LED
+            CODE    01A5H     0009H     UNIT         ?PR?_DRV_LED_OFF?DRV_LED
+            CODE    01AEH     0008H     UNIT         ?PR?DRV_LED_INIT?DRV_LED
+            CODE    01B6H     0006H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   ..\output\Project_AS62 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2017  11:57:22  PAGE 2
+
+
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?DRV_UART_INIT?DRV_UART
+  +--> ?PR?DRV_LED_INIT?DRV_LED
+  +--> ?PR?_DRV_UART_TX_BYTES?DRV_UART
+  +--> ?PR?_DRV_LED_FLASHING?DRV_LED
+  +--> ?PR?_DRV_DELAY_MS?DRV_DELAY
+
+?PR?_DRV_DELAY_MS?DRV_DELAY
+  +--> ?PR?DRV_DELAY_1MS?DRV_DELAY
+
+?C_INITSEG
+  +--> ?CO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  ..\output\Project_AS62 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0109H         PUBLIC        main
+  D:0008H         PUBLIC        pAshining
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0109H         LINE#         41
+  C:0109H         LINE#         42
+  C:0109H         LINE#         48
+  C:010CH         LINE#         51
+  C:010FH         LINE#         53
+  C:010FH         LINE#         54
+  C:010FH         LINE#         57
+  C:011CH         LINE#         58
+  C:0121H         LINE#         59
+  C:0128H         LINE#         79
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DRV_DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0167H         PUBLIC        _drv_delay_ms
+  C:012AH         SYMBOL        drv_delay_1ms
+  -------         PROC          DRV_DELAY_1MS
+  -------         DO            
+  D:0006H         SYMBOL        Ms
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2017  11:57:22  PAGE 3
+
+
+  C:012AH         LINE#         28
+  C:012AH         LINE#         29
+  C:012AH         LINE#         30
+  C:012EH         LINE#         31
+  C:0132H         LINE#         33
+  C:013CH         LINE#         34
+  C:013CH         LINE#         35
+  C:0148H         LINE#         37
+  -------         ENDPROC       DRV_DELAY_1MS
+  -------         PROC          _DRV_DELAY_MS
+  D:0082H         SYMBOL        Ms
+  C:0167H         LINE#         46
+  C:016BH         LINE#         47
+  C:016BH         LINE#         48
+  C:0178H         LINE#         49
+  C:0178H         LINE#         50
+  C:017BH         LINE#         51
+  C:017DH         LINE#         52
+  -------         ENDPROC       _DRV_DELAY_MS
+  -------         ENDMOD        DRV_DELAY
+
+  -------         MODULE        DRV_LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0091H         PUBLIC        P1M0
+  D:0092H         PUBLIC        P1M1
+  D:0090H         PUBLIC        P1
+  C:01A5H         PUBLIC        _drv_led_off
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:017EH         PUBLIC        _drv_led_flashing
+  D:00B8H         PUBLIC        IP
+  C:019CH         PUBLIC        _drv_led_on
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.0       PUBLIC        LED_RED_PIN
+  D:00C8H         PUBLIC        T2CON
+  B:0090H.1       PUBLIC        LED_GREEN_PIN
+  D:00D0H         PUBLIC        PSW
+  C:01AEH         PUBLIC        drv_led_init
+  -------         PROC          DRV_LED_INIT
+  C:01AEH         LINE#         28
+  C:01AEH         LINE#         29
+  C:01AEH         LINE#         32
+  C:01AEH         LINE#         33
+  C:01B1H         LINE#         35
+  C:01B3H         LINE#         36
+  C:01B5H         LINE#         37
+  -------         ENDPROC       DRV_LED_INIT
+  -------         PROC          _DRV_LED_ON
+  D:0007H         SYMBOL        LedPort
+  C:019CH         LINE#         46
+  C:019CH         LINE#         47
+  C:019CH         LINE#         49
+  C:019FH         LINE#         50
+  C:019FH         LINE#         51
+  C:01A1H         LINE#         52
+  C:01A2H         LINE#         54
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2017  11:57:22  PAGE 4
+
+
+  C:01A2H         LINE#         55
+  C:01A4H         LINE#         56
+  C:01A4H         LINE#         57
+  -------         ENDPROC       _DRV_LED_ON
+  -------         PROC          _DRV_LED_OFF
+  D:0007H         SYMBOL        LedPort
+  C:01A5H         LINE#         66
+  C:01A5H         LINE#         67
+  C:01A5H         LINE#         69
+  C:01A8H         LINE#         70
+  C:01A8H         LINE#         71
+  C:01AAH         LINE#         72
+  C:01ABH         LINE#         74
+  C:01ABH         LINE#         75
+  C:01ADH         LINE#         76
+  C:01ADH         LINE#         77
+  -------         ENDPROC       _DRV_LED_OFF
+  -------         PROC          _DRV_LED_FLASHING
+  D:0007H         SYMBOL        LedPort
+  C:017EH         LINE#         86
+  C:017EH         LINE#         87
+  C:017EH         LINE#         88
+  C:0181H         LINE#         89
+  C:0181H         LINE#         90
+  C:0184H         LINE#         91
+  C:0184H         LINE#         92
+  C:0186H         LINE#         93
+  C:0187H         LINE#         95
+  C:0187H         LINE#         96
+  C:0189H         LINE#         97
+  C:0189H         LINE#         98
+  C:018AH         LINE#         100
+  C:018AH         LINE#         101
+  C:018DH         LINE#         102
+  C:018DH         LINE#         103
+  C:018FH         LINE#         104
+  C:0190H         LINE#         106
+  C:0190H         LINE#         107
+  C:0192H         LINE#         108
+  C:0192H         LINE#         109
+  C:0192H         LINE#         110
+  -------         ENDPROC       _DRV_LED_FLASHING
+  -------         ENDMOD        DRV_LED
+
+  -------         MODULE        DRV_UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B1H         PUBLIC        P3M0
+  D:0090H         PUBLIC        P1
+  D:00B2H         PUBLIC        P3M1
+  D:00B0H         PUBLIC        P3
+  C:00E7H         PUBLIC        drv_uart_init
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2017  11:57:22  PAGE 5
+
+
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:008FH         PUBLIC        _drv_uart_rx_bytes
+  C:0149H         PUBLIC        _drv_uart_tx_bytes
+  B:00B0H.1       PUBLIC        UART_TX
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DRV_UART_INIT
+  C:00E7H         LINE#         27
+  C:00E7H         LINE#         28
+  C:00E7H         LINE#         31
+  C:00E7H         LINE#         32
+  C:00EAH         LINE#         33
+  C:00EDH         LINE#         34
+  C:00EDH         LINE#         35
+  C:00EFH         LINE#         38
+  C:00F2H         LINE#         39
+  C:00F5H         LINE#         42
+  C:00F8H         LINE#         43
+  C:00FBH         LINE#         44
+  C:00FEH         LINE#         45
+  C:0101H         LINE#         46
+  C:0104H         LINE#         48
+  C:0106H         LINE#         49
+  C:0108H         LINE#         50
+  -------         ENDPROC       DRV_UART_INIT
+  -------         PROC          _DRV_UART_TX_BYTES
+  D:0001H         SYMBOL        TxBuffer
+  D:0004H         SYMBOL        Length
+  C:0149H         LINE#         60
+  C:0149H         LINE#         61
+  C:0149H         LINE#         62
+  C:0153H         LINE#         63
+  C:0153H         LINE#         64
+  C:0156H         LINE#         65
+  C:0158H         LINE#         66
+  C:015DH         LINE#         67
+  C:0164H         LINE#         68
+  C:0166H         LINE#         69
+  -------         ENDPROC       _DRV_UART_TX_BYTES
+  -------         PROC          _DRV_UART_RX_BYTES
+  D:0001H         SYMBOL        RxBuffer
+  -------         DO            
+  D:000BH         SYMBOL        l_RxLength
+  D:0006H         SYMBOL        l_UartRxTimOut
+  -------         ENDDO         
+  C:008FH         LINE#         78
+  C:008FH         LINE#         79
+  C:008FH         LINE#         80
+  C:0092H         LINE#         81
+  C:0096H         LINE#         83
+  C:00A0H         LINE#         84
+  C:00A0H         LINE#         85
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2017  11:57:22  PAGE 6
+
+
+  C:00A3H         LINE#         86
+  C:00A3H         LINE#         87
+  C:00A5H         LINE#         88
+  C:00AAH         LINE#         89
+  C:00B1H         LINE#         90
+  C:00B3H         LINE#         91
+  C:00B7H         LINE#         92
+  C:00B7H         LINE#         93
+  C:00B9H         LINE#         95
+  C:00BBH         LINE#         96
+  -------         ENDPROC       _DRV_UART_RX_BYTES
+  -------         ENDMOD        DRV_UART
+
+  -------         MODULE        ?C?CLDPTR
+  C:00BCH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:00D5H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRV_LED_ON?DRV_LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRV_LED_OFF?DRV_LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DRV_UART_RX_BYTES?DRV_UART
+
+Program Size: data=13.0 xdata=0 code=444
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

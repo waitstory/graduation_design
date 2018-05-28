@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=RESET Pin=C7-2
+Removed Pin From Net: NetName=DATA Pin=U1-1
+Removed Pin From Net: NetName=LED2 Pin=U1-3
+Removed Pin From Net: NetName=LED1 Pin=U1-5
+Removed Pin From Net: NetName=RESET Pin=U1-9
+Removed Pin From Net: NetName=RX Pin=U1-10
+Removed Pin From Net: NetName=TX Pin=U1-11
+Removed Pin From Net: NetName=XTAL2 Pin=U1-18
+Removed Pin From Net: NetName=XTAL1 Pin=U1-19
+Removed Pin From Net: NetName=GND Pin=U1-20
+Removed Pin From Net: NetName=M1 Pin=U1-27
+Removed Pin From Net: NetName=M0 Pin=U1-28
+Removed Pin From Net: NetName=VCC Pin=U1-40
+Added Component: Designator=U?(DIP-40)
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=DATA Pin=U?-1
+Added Pin To Net: NetName=LED2 Pin=U?-3
+Added Pin To Net: NetName=LED1 Pin=U?-5
+Added Pin To Net: NetName=RESET Pin=U?-9
+Added Pin To Net: NetName=RX Pin=U?-10
+Added Pin To Net: NetName=TX Pin=U?-11
+Added Pin To Net: NetName=XTAL2 Pin=U?-18
+Added Pin To Net: NetName=XTAL1 Pin=U?-19
+Added Pin To Net: NetName=GND Pin=U?-20
+Added Pin To Net: NetName=M1 Pin=U?-27
+Added Pin To Net: NetName=M0 Pin=U?-28
+Added Pin To Net: NetName=VCC Pin=U?-40
+Added Member To Class: ClassName=Slave Member=Component U? STC89C51
+Added Room: Name=Slave
