@@ -61,13 +61,10 @@ void main()
             Delay_ms(100);
             BEEP = 1;
             Delay_ms(100);
-          
         }
-        KeyScan();
-        
+        KeyScan();    
     }
 }
-
 
 /* 配置并启动T0,定时50ms*/
 void ConfigTimer0()
@@ -79,7 +76,6 @@ void ConfigTimer0()
     ET0 = 1; //使能 T0 中断
     TR0 = 1; //启动 T0
 }
-
 
 /* 串口配置函数，baud-通信波特率 */
 void InitUART(uint baud)

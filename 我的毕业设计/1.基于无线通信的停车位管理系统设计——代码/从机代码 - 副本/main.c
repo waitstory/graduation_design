@@ -31,7 +31,6 @@ void main()
 
     while(1)
     {   
-
         if(Infrad == 0)
         {    
             Count++; 

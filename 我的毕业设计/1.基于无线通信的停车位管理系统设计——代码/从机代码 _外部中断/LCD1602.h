@@ -12,7 +12,8 @@ sbit LCD1602_RW = P1^1;
 sbit LCD1602_E  = P1^5;
 
 void InitLcd1602();
+void LcdFullClear();
 void LcdShowChr(unsigned char x, unsigned char y, unsigned char chr);
-//void LcdShowStr(unsigned char x, unsigned char y, unsigned char *str);
+void LcdShowStr(unsigned char x, unsigned char y, unsigned char *str);
 
 #endif
