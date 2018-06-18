@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=RESET Pin=C2-2
+Removed Pin From Net: NetName=BEEP Pin=P2-2
+Removed Pin From Net: NetName=VCC Pin=P2-3
+Removed Pin From Net: NetName=RESET Pin=R1-2
+Removed Pin From Net: NetName=LED1 Pin=U1-6
+Removed Pin From Net: NetName=RX Pin=U1-10
+Removed Pin From Net: NetName=TX Pin=U1-11
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 3 New DesignItemId=Header 4
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X3 New Footprint=HDR1X4
+Change Component Footprint: Designator=1 Old Footprint=XTAL New Footprint=XTAL_US
+Change Component Comment : Designator=P2 Old Comment=·äÃùÆ÷ New Comment=Header 4
+Added Component: Designator=P4(HDR1X3)
+Added Component: Designator=R4(RPot)
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=TX Pin=P2-2
+Added Pin To Net: NetName=RX Pin=P2-3
+Added Pin To Net: NetName=VCC Pin=P2-4
+Added Pin To Net: NetName=GND Pin=P4-1
+Added Pin To Net: NetName=BEEP Pin=P4-2
+Added Pin To Net: NetName=VCC Pin=P4-3
+Added Pin To Net: NetName=NetC2_2 Pin=R1-2
+Added Pin To Net: NetName=VO Pin=R4-1
+Added Pin To Net: NetName=GND Pin=R4-2
+Added Pin To Net: NetName=VO Pin=R4-3
+Added Pin To Net: NetName=TX Pin=U1-10
+Added Pin To Net: NetName=RX Pin=U1-11
+Added Member To Class: ClassName=Master Member=Component P4 ·äÃùÆ÷
+Added Member To Class: ClassName=Master Member=Component R4 10K
+Added Member To Class: ClassName=Master Member=Component R5 Res2
+Added Room: Name=Master

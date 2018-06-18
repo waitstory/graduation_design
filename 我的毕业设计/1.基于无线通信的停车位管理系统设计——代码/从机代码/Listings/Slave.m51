@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        05/22/2018  21:58:13  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/02/2018  17:03:28  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\Slave (?C_STARTUP)
 
 OVERLAY MAP OF MODULE:   .\Objects\Slave (?C_STARTUP)
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 2
 
 
 
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   C:0000H         LINE#         126
   C:01A2H         LINE#         133
   C:01A4H         LINE#         134
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 3
 
 
   C:01A5H         LINE#         135
@@ -136,9 +136,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   D:00A8H         PUBLIC        IE
   C:03FDH         PUBLIC        LcdFullClear
   D:00B8H         PUBLIC        IP
-  B:0090H.2       PUBLIC        LCD1602_RS
+  B:0090H.1       PUBLIC        LCD1602_RS
   C:03A4H         PUBLIC        LcdWaitReady
-  B:0090H.1       PUBLIC        LCD1602_RW
+  B:0090H.2       PUBLIC        LCD1602_RW
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:03C8H         PUBLIC        _LcdWriteCmd
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   C:03D7H         LINE#         26
   -------         ENDPROC       _LCDWRITECMD
   -------         PROC          _LCDWRITEDAT
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 4
 
 
   D:0006H         SYMBOL        dat
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   C:0390H         LINE#         77
   C:0395H         LINE#         78
   C:039AH         LINE#         79
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 5
 
 
   C:039FH         LINE#         80
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   C:0261H         LINE#         39
   C:0261H         LINE#         41
   C:0264H         LINE#         42
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 6
 
 
   C:0264H         LINE#         43
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\Slave (?C_STARTUP)
   -------         ENDDO         
   C:0327H         LINE#         91
   C:032DH         LINE#         92
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/22/2018  21:58:13  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2018  17:03:28  PAGE 7
 
 
   C:032DH         LINE#         93

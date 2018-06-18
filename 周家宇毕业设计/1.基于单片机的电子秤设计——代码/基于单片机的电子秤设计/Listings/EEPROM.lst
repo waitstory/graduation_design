@@ -1,0 +1,101 @@
+C51 COMPILER V9.56.0.0   EEPROM                                                            06/04/2018 19:24:27 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE EEPROM
+OBJECT MODULE PLACED IN .\Objects\EEPROM.obj
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE EEPROM.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\EEPR
+                    -OM.lst) OBJECT(.\Objects\EEPROM.obj)
+
+line level    source
+
+   1          #include "EEPROM.h"
+   2          
+   3          /**********打开ISP/IAP功能**************/   
+   4          void ISP_IAP_Enable(void)
+   5          {
+   6   1          EA = 0;  //关中断  
+   7   1          ISP_CONTR = ISP_CONTR & 0x18;  
+   8   1          ISP_CONTR = ISP_CONTR | WaitTime; // 设置等待时间
+   9   1          ISP_CONTR = ISP_CONTR | 0x80;   //允许ISP/IAP操作
+  10   1      }
+  11          
+  12          /**********关闭ISP/IAP功能**************/   
+  13          void ISP_IAP_Disable(void)
+  14          {
+  15   1               ISP_CONTR = ISP_CONTR & 0x7f; //禁止ISP/IAP操作
+  16   1           ISP_CMD = 0x00;    //去除ISP/IAP命令
+  17   1               ISP_TRIG = 0x00;   //防止ISP/IAP命令无触发
+  18   1               EA   =   1;        // 开中断 
+  19   1      }
+  20          
+  21          /**********触发ISP/IAP**************/  
+  22          void ISPTrig(void)
+  23          {
+  24   1               ISP_TRIG = 0x46;  //先送46h，再送B9h到ISP/IAP触发寄存器，每次都需如此
+  25   1               ISP_TRIG = 0xb9;  //送完B9h后，ISP/IAP命令立即被触发启动
+  26   1               _nop_();
+  27   1      }
+  28          
+  29          /**********字节读**************/
+  30          unsigned char byte_read(unsigned int byte_addr)
+  31          {
+  32   1           unsigned char  dat = 0;    //读EEPROM数据缓存
+  33   1      
+  34   1               EA = 0;     //关中断
+  35   1               ISP_ADDRH = (unsigned char)(byte_addr >> 8);     //送地址高字节
+  36   1               ISP_ADDRL = (unsigned char)(byte_addr & 0x00ff); //送地址低字节
+  37   1           ISP_IAP_Enable();             //打开ISP/IAP功能
+  38   1               ISP_CMD   = ISP_CMD & 0xf8;   //清除ISP_CMD寄存器低3位
+  39   1               ISP_CMD   = ISP_CMD | RdCommand; //写入读数据命令 
+  40   1               ISPTrig();                //触发ISP/IAP
+  41   1               dat = ISP_DATA;           //将ISP_DATA寄存器中的数据保存起来
+  42   1           ISP_IAP_Disable();        //关闭ISP/IAP功能 
+  43   1               EA  = 1;           //使能中断
+  44   1               return dat;        //返回读到的数据
+  45   1      }
+  46          
+  47          /**********字节写**************/
+  48          void byte_write(unsigned int byte_addr,unsigned char Orig_data)
+  49          {
+  50   1               EA  = 0;  //关中断
+  51   1               ISP_ADDRH = (unsigned char)(byte_addr >> 8);       //送地址高字节
+  52   1               ISP_ADDRL = (unsigned char)(byte_addr & 0x00ff);   //送地址低字节
+  53   1               ISP_IAP_Enable();                   //打开ISP/IAP功能
+  54   1           ISP_CMD  = ISP_CMD & 0xf8;         //清除ISP_CMD寄存器低3位
+C51 COMPILER V9.56.0.0   EEPROM                                                            06/04/2018 19:24:27 PAGE 2   
+
+  55   1               ISP_CMD  = ISP_CMD | PrgCommand;   //写入写数据命令 
+  56   1               ISP_DATA = Orig_data;      //写入数据到ISP_DATA寄存器
+  57   1               ISPTrig();                //触发ISP/IAP
+  58   1               ISP_IAP_Disable();        //关闭ISP/IAP功能 
+  59   1               EA =1;            //使能中断
+  60   1      }
+  61          /**********扇区擦除**************/
+  62          void SectorErase(unsigned int sector_addr)
+  63          {
+  64   1               EA = 0;   
+  65   1               ISP_ADDRH = (unsigned char)(sector_addr >> 8);        //送擦除地址高字节
+  66   1               ISP_ADDRL = (unsigned char)(sector_addr & 0x00ff);    //送擦除地址低字节
+  67   1               ISP_IAP_Enable(); 
+  68   1           ISP_CMD = ISP_CMD & 0xf8;           //清除ISP_CMD寄存器低3位
+  69   1               ISP_CMD = ISP_CMD | EraseCommand;   //写入擦除数据命令
+  70   1               ISPTrig();       //触发ISP/IAP
+  71   1               ISP_IAP_Disable();    //关闭ISP/IAP功能 
+  72   1      
+  73   1      }
+  74          
+  75                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    114    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

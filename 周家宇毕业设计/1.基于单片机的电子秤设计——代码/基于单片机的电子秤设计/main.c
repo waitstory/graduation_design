@@ -11,7 +11,6 @@ sbit KEY3 = P2^0;
 //uint count = 0;
 
 volatile bit flag = 0;		    //定时0.5s标志位
-volatile bit FlagKeyPress = 0;  //有键按下标志，处理完毕清0
 
 uchar flag_read;       //将传感器参数写入单片机内部EEPROM中标志
 uint GapValue;     //传感器参数值

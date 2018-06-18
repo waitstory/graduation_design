@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=VO Pin=R4-1
+Removed Pin From Net: NetName=GND Pin=R4-2
+Removed Pin From Net: NetName=VO Pin=R4-3
+Removed Member From Class: ClassName=Master Member=R4
+Added Component: Designator=R?(RPot)
+Added Pin To Net: NetName=VO Pin=R?-1
+Added Pin To Net: NetName=VO Pin=R?-2
+Added Pin To Net: NetName=GND Pin=R?-3
+Added Member To Class: ClassName=Master Member=Component R? RPot
+Added Room: Name=Master

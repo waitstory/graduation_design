@@ -1,0 +1,6 @@
+".\Objects\main.obj",
+".\Objects\EEPROM.obj",
+".\Objects\LCD1602.obj",
+".\Objects\STARTUP.obj" 
+TO ".\Objects\Master" 
+PRINT(".\Listings\Master.m51") RAMSIZE(256) 

@@ -1,0 +1,337 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "LCD1602.h"
+   2          #include "EEPROM.h"
+   3          #include "HX711.h"
+   4          
+   5          sbit LED = P2^7;
+   6          sbit Buzzer = P2^6; 
+   7          sbit KEY1 = P2^2;
+   8          sbit KEY2 = P2^1;
+   9          sbit KEY3 = P2^0;
+  10          
+  11          //uint count = 0;
+  12          
+  13          volatile bit flag = 0;              //定时0.5s标志位
+  14          
+  15          uchar flag_read;       //将传感器参数写入单片机内部EEPROM中标志
+  16          uint GapValue;     //传感器参数值
+  17          uint GapValue1;    //传感器参数缓存值
+  18          unsigned long Weight_Maopi_0 = 0;  //毛皮重量缓存
+  19          unsigned long Weight_Maopi = 0;    //稳定后毛皮重量缓存
+  20          long Weight_Shiwu = 0;     //物体重量缓存
+  21          unsigned int qupi=0;       //去皮重量缓存
+  22          unsigned char key_press_num=0;
+  23          
+  24          void ConfigTimer0();    //定时器T0配置函数
+  25          void Write_eeprom();    //将数据写入到单片机内部EEPROM中
+  26          void Read_eeprom();     //从单片机内部EEPROM中读取数据函数
+  27          void Init_eeprom();     //上电初始化保存压力传感器参数到单片机内部EEPROM中
+  28          void Get_Maopi();       //获取毛皮重量函数
+  29          void Get_Weight();      //获取重量函数
+  30          void Delay_ms(uint x);  //延时毫秒函数
+  31          void KeyPress();        //按键扫描函数
+  32          
+  33          void main()
+  34          {
+  35   1          Init_eeprom();  //上电初始化保存压力传感器参数到单片机内部EEPROM中
+  36   1          InitLcd1602();  //初始化LCD1602设置
+  37   1          ConfigTimer0(); //配置定时器T0
+  38   1         
+  39   1          LcdShowStr(0,0," Welcome To Use ");
+  40   1          LcdShowStr(0,1,"Electronic Scale");
+  41   1      
+  42   1          Get_Maopi(); 
+  43   1      
+  44   1          LcdShowStr(1,0,"SYSTEM Running");
+  45   1          LcdShowStr(0,1," Weight: 0.000kg");
+  46   1      
+  47   1          while(1)
+  48   1          {   
+  49   2              if (flag == 1)      //每0.5秒称重一次
+  50   2              {
+  51   3                  flag = 0;
+  52   3                  Get_Weight();   
+  53   3              }        
+  54   2              KeyPress();
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 2   
+
+  55   2          }
+  56   1      }
+  57          
+  58          
+  59          /* 配置并启动T0,在12M晶振下定时50ms*/
+  60          void ConfigTimer0()
+  61          {
+  62   1          EA = 1;       //使能中断总开关
+  63   1          TMOD &= 0x3C; //清零T0的控制位
+  64   1          TMOD |= 0xB0; //配置T0为模式1
+  65   1          TH0 = 0x3C;   //加载T0重载值
+  66   1          TL0 = 0xB0;
+  67   1          ET0 = 1; //使能T0中断
+  68   1          TR0 = 1; //启动T0
+  69   1          
+  70   1      }
+  71          
+  72          /*把数据保存到单片机内部eeprom中*/
+  73          void Write_eeprom()
+  74          {
+  75   1              SectorErase(0x2000);      
+  76   1              GapValue1=GapValue&0x00ff;
+  77   1              byte_write(0x2000, GapValue1);
+  78   1              GapValue1=(GapValue&0xff00)>>8;
+  79   1              byte_write(0x2001, GapValue1);
+  80   1              byte_write(0x2060, flag_read);  
+  81   1      }
+  82          
+  83          /*把数据从单片机内部eeprom中读出来*/
+  84          void Read_eeprom()
+  85          {
+  86   1              GapValue   = byte_read(0x2001);
+  87   1              GapValue   = (GapValue<<8)|byte_read(0x2000);
+  88   1              flag_read  = byte_read(0x2060);
+  89   1      }
+  90          
+  91          /*开机自检eeprom初始化*/
+  92          void Init_eeprom() 
+  93          {
+  94   1              Read_eeprom();              //先读
+  95   1              if(flag_read != 1)              //新的单片机初始单片机内问EEPROM
+  96   1              {
+  97   2                      GapValue  = 3500;
+  98   2                      flag_read = 1;
+  99   2                      Write_eeprom();     //保存数据
+ 100   2              }       
+ 101   1      }
+ 102          
+ 103          /*显示重量，单位kg，两位整数，三位小数*/
+ 104          void Display_Weight()
+ 105          {
+ 106   1              
+ 107   1              if(Weight_Shiwu/10000==0)
+ 108   1              {
+ 109   2              LcdShowChr(8,1,' ');
+ 110   2          }
+ 111   1              else
+ 112   1          {
+ 113   2              LcdShowChr(8,1,Weight_Shiwu/10000 + 0x30);
+ 114   2          }
+ 115   1              LcdShowChr(9,1,Weight_Shiwu%10000/1000 + 0x30);
+ 116   1              LcdShowChr(10,1,'.');
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 3   
+
+ 117   1              LcdShowChr(11,1,Weight_Shiwu%1000/100 + 0x30);
+ 118   1              LcdShowChr(12,1,Weight_Shiwu%100/10 + 0x30);
+ 119   1              LcdShowChr(13,1,Weight_Shiwu%10 + 0x30);
+ 120   1      }
+ 121          
+ 122          /*获取毛皮重量*/
+ 123          void Get_Maopi()
+ 124          {
+ 125   1              uchar i;
+ 126   1      
+ 127   1      mm:     Weight_Maopi_0 = HX711_Read();
+ 128   1              for(i=0;i<10;i++)
+ 129   1              {
+ 130   2                      Buzzer=1;
+ 131   2                      LED=0;
+ 132   2                      Delay_ms(100);
+ 133   2                      LED=1;
+ 134   2                      Delay_ms(100);  
+ 135   2              }
+ 136   1              Weight_Maopi = HX711_Read();
+ 137   1              if(Weight_Maopi/GapValue!=Weight_Maopi_0/GapValue)
+ 138   1              goto mm;
+ 139   1              Buzzer=0;
+ 140   1              Delay_ms(500);
+ 141   1              Buzzer=1;
+ 142   1      } 
+ 143          
+ 144          /*获取重量函数*/
+ 145          void Get_Weight()
+ 146          {
+ 147   1              Weight_Shiwu = HX711_Read();
+ 148   1              Weight_Shiwu = Weight_Shiwu - Weight_Maopi;             //获取净重
+ 149   1              
+ 150   1              Weight_Shiwu = (unsigned int)((float)(Weight_Shiwu*10)/GapValue)-qupi;  //计算实物的实际重量                                                                                                    
+             -                        
+ 151   1              if(Weight_Shiwu >= 10000)               //超重报警
+ 152   1              {
+ 153   2                      Buzzer = !Buzzer;       
+ 154   2                      LED=!LED;
+ 155   2                      LcdShowStr(8,1,"--.---");
+ 156   2              }
+ 157   1              else
+ 158   1              {
+ 159   2                      if(Weight_Shiwu==0)
+ 160   2                      {
+ 161   3                  LED=0;
+ 162   3              }
+ 163   2                      else if(Weight_Shiwu>0)
+ 164   2                      {
+ 165   3                  LED=1;
+ 166   3              }
+ 167   2                      Buzzer = 1;
+ 168   2                      Display_Weight();
+ 169   2              }
+ 170   1      }
+ 171          void KeyPress()
+ 172          {
+ 173   1              if(KEY1==0)         //去皮键
+ 174   1              {
+ 175   2                      Delay_ms(5);   //按键消抖
+ 176   2      
+ 177   2                      if(KEY1==0)
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 4   
+
+ 178   2                      {
+ 179   3                              if(qupi==0)
+ 180   3                              {
+ 181   4                      qupi=Weight_Shiwu;
+ 182   4                  }
+ 183   3                              else
+ 184   3                              {
+ 185   4                      qupi=0;
+ 186   4                  }
+ 187   3                              Buzzer=0;
+ 188   3                              Delay_ms(50);
+ 189   3                              Buzzer=1;       
+ 190   3                              while(KEY1==0);
+ 191   3                      }
+ 192   2              }
+ 193   1              if(KEY2==0)        //校准传感器参数加
+ 194   1              {
+ 195   2                      Delay_ms(5);    //按键消抖
+ 196   2      
+ 197   2                      if(KEY2==0)
+ 198   2                      {
+ 199   3                              while(!KEY2)
+ 200   3                              {
+ 201   4                                      key_press_num++;
+ 202   4                                      if(key_press_num>=100)
+ 203   4                                      {
+ 204   5                                              key_press_num=0;
+ 205   5                                              
+ 206   5                          while(!KEY2)
+ 207   5                                              {
+ 208   6                                                      if(GapValue<10000)
+ 209   6                                                      {
+ 210   7                                  GapValue+=10;
+ 211   7                              }
+ 212   6      
+ 213   6                                                      Buzzer=0;
+ 214   6                                                      Delay_ms(10);
+ 215   6                                                      Buzzer=1;
+ 216   6                                                      Delay_ms(10);
+ 217   6                                                      Get_Weight();
+ 218   6                                              }
+ 219   5                                      }
+ 220   4                                      Delay_ms(10);
+ 221   4                              }
+ 222   3      
+ 223   3                              if(key_press_num != 0)
+ 224   3                              {
+ 225   4                                      key_press_num = 0;
+ 226   4                                      if(GapValue<10000)
+ 227   4                                      {
+ 228   5                          GapValue++;
+ 229   5                      }
+ 230   4                                      Buzzer=0;
+ 231   4                                      Delay_ms(50);
+ 232   4                                      Buzzer=1;
+ 233   4                              }
+ 234   3                              Write_eeprom();         //将调整后传感器参数写入单片机内部EEPROM
+ 235   3                      } 
+ 236   2              }
+ 237   1              if(KEY3==0)     //校准传感器参数减
+ 238   1              {
+ 239   2                      Delay_ms(5);
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 5   
+
+ 240   2      
+ 241   2                      if(KEY3==0)
+ 242   2                      {
+ 243   3                              while(!KEY3)
+ 244   3                              {
+ 245   4                                      key_press_num++;
+ 246   4                                      if(key_press_num>=100)
+ 247   4                                      {
+ 248   5                                              key_press_num=0;
+ 249   5                                              while(!KEY3)
+ 250   5                                              {
+ 251   6                                                      if(GapValue>1)
+ 252   6                                                      {
+ 253   7                                  GapValue-=10;
+ 254   7                              }
+ 255   6                                                      Buzzer=0;
+ 256   6                                                      Delay_ms(10);
+ 257   6                                                      Buzzer=1;
+ 258   6                                                      Delay_ms(10);
+ 259   6                                                      Get_Weight();
+ 260   6                                              }
+ 261   5                                      }
+ 262   4                                      Delay_ms(10);
+ 263   4                              }
+ 264   3      
+ 265   3                              if(key_press_num!=0)
+ 266   3                              {
+ 267   4                                      key_press_num=0;
+ 268   4                                      if(GapValue>1)
+ 269   4                                      {   
+ 270   5                          GapValue--;
+ 271   5                                      }
+ 272   4                      Buzzer=0;
+ 273   4                                      Delay_ms(50);
+ 274   4                                      Buzzer=1;
+ 275   4                              }
+ 276   3                              Write_eeprom();       //将调整后传感器参数写入单片机内部EEPROM
+ 277   3                      }
+ 278   2              }
+ 279   1      }
+ 280          /*毫秒延时函数(12M晶振下)*/
+ 281          void Delay_ms(uint x)
+ 282          {
+ 283   1              uint i,j;
+ 284   1              for(i=0;i<x;i++)
+ 285   1                      for(j=0;j<121;j++);
+ 286   1      }
+ 287          
+ 288          /*定时器0中断服务函数*/
+ 289          void InterruptTimer0 () interrupt 1 
+ 290          {   
+ 291   1          static uchar counter = 0;
+ 292   1          
+ 293   1          TH0 = 0x3C; //定时器赋初值    
+ 294   1          TL0 = 0xB0;   
+ 295   1      
+ 296   1          counter++;  
+ 297   1          if(counter >= 10)   //每0.5秒钟刷新重量
+ 298   1          {  
+ 299   2              counter = 0;
+ 300   2              flag = 1;
+ 301   2          }
+C51 COMPILER V9.56.0.0   MAIN                                                              06/04/2018 19:26:14 PAGE 6   
+
+ 302   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1106    ----
+   CONSTANT SIZE    =     73    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

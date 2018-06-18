@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\LCD1602.obj",
+".\Objects\HX711.obj",
+".\Objects\EEPROM.obj",
+".\Objects\STARTUP.obj" 
+TO ".\Objects\电子秤" 
+PRINT(".\Listings\电子秤.m51") RAMSIZE(256) 

@@ -4,7 +4,9 @@
 
 sbit M0 = P2^7;    //SX1278无线UART模块工作方式选择引脚
 sbit M1 = P2^6; 
+
 sbit BEEP = P1^3;
+sbit LED = P1^4;
 sbit KEY1 = P2^2;
 sbit KEY2 = P2^1;
 sbit KEY3 = P2^0;
@@ -13,7 +15,7 @@ bit flag = 0;       //数据接收完成
 bit flagRec = 0;    //开始接收数据标志
 bit flag_read = 0;  //将总车位数写入单片机内部EEPROM中标志
 uchar dat =0;       //数据保存位
-uchar RxStr[6]={0}; //接收数据缓冲区
+uchar RxStr[5]={0}; //接收数据缓冲区
 uchar All = 99;     //总车位数
 uchar Count = 0;    //已占用车位
 uchar state = 0;    //按键选择模式
@@ -58,9 +60,15 @@ void main()
         if((All-Count) == 5)
         {
             BEEP = 0;
-            Delay_ms(100);
-            BEEP = 1;
-            Delay_ms(100);
+            LED = 0;
+//            Delay_ms(30);
+//            BEEP = 1;
+//           Delay_ms(30);
+        }
+        else
+        {
+             BEEP = 1; 
+             LED = 1;
         }
         KeyScan();    
     }
@@ -158,7 +166,7 @@ void KeyScan()
 {
     if(KEY1 == 0)
     {
-        Delay_ms(10);
+        Delay_ms(5);
     
         if(KEY1 == 0)
         {   
@@ -171,7 +179,7 @@ void KeyScan()
 
     if(KEY2 == 0)        //总车位数加
     {
-        Delay_ms(10);     //消抖
+        Delay_ms(5);     //消抖
     
         if(KEY2 == 0)
         {
@@ -192,7 +200,7 @@ void KeyScan()
   
     if(KEY3 == 0)     //总车位数减
     {
-        Delay_ms(10);  //消抖
+        Delay_ms(5);  //消抖
     
         if(KEY3 == 0)
         {   
@@ -224,7 +232,7 @@ void KeyScan()
         LcdShowChr(4,1,(All-Count)/10+'0');     //剩余车位
         LcdShowChr(5,1,(All-Count)%10+'0');
         LcdShowStr(8,1,"Cur:");
-        LcdShowChr(12,1,Count/10+'0');     //剩余车位
+        LcdShowChr(12,1,Count/10+'0');     //已占车位
         LcdShowChr(13,1,Count%10+'0');  
 //        LcdShowStr(10,0,RxStr);
     }
@@ -284,7 +292,7 @@ void InterruptUART() interrupt 4
                 }
             }
         }
-        //SUBF = dat;  //将接收到的数据通过串口发送到电脑打印出来显示，方便调试
+        SBUF = dat;  //将接收到的数据通过串口发送到电脑打印出来显示，方便调试
     }  
 }
 
